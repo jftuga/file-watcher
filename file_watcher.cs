@@ -27,7 +27,7 @@ using System.IO;
 
 namespace FileWatcher {
     class Program {
-        const string pgm_version = "1.0.2";
+        const string pgm_version = "1.0.3";
         const string pgm_url = "https://github.com/jftuga/file_watcher";
         
         const int success_exit_code = 80211;
@@ -84,7 +84,7 @@ namespace FileWatcher {
 
             if(isIgnored(e.FullPath.ToString())) return;
 
-            if(dbg) Console.WriteLine("File created or changed: {0} ", e.FullPath.ToString());
+            if(dbg) Console.WriteLine("File created, deleted, or changed: {0} ", e.FullPath.ToString());
             System.Environment.Exit(success_exit_code);
         }
 
