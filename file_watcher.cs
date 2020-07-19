@@ -30,17 +30,17 @@ namespace FileWatcher {
         const string pgm_version = "1.0.0";
         const string pgm_url = "https://github.com/jftuga/file_watcher";
         
-    	const int success_exit_code = 80211;
+        const int success_exit_code = 80211;
         static string[] ignore_list = { @"\AppData\", @"\temp\", @"ntuser.dat", ".tmp" };
 
-    	 // Start a FileSystemWatch and it's event handlers
+         // Start a FileSystemWatch and it's event handlers
         // filterPath: An empty string ("") watches all files.
         static void InitFSWatcher(string pathToFolder, string filterPath) {
             // lowercase the ignorelist
             for( int i = 0; i < ignore_list.Length; i++) {
                 ignore_list[i] = ignore_list[i].ToLower();
             }
-        	// https://msdn.microsoft.com/en-us/library/system.io.filesystemwatcher.aspx
+            // https://msdn.microsoft.com/en-us/library/system.io.filesystemwatcher.aspx
             FileSystemWatcher watcher = new FileSystemWatcher();
 
             watcher.Path = pathToFolder;
@@ -80,7 +80,7 @@ namespace FileWatcher {
         // if the filename is in monitored_dict, then save it to the tsv file
         // Specify what is done when a file is changed, created, or deleted.
         private static void OnChanged(object source, FileSystemEventArgs e) {
-        	bool dbg=true;
+            bool dbg=true;
 
             if(isIgnored(e.FullPath.ToString())) return;
 
@@ -101,8 +101,9 @@ namespace FileWatcher {
         }
 
         static void Main(string[] args) {
-        	bool dbg=true;
+            bool dbg=true;
             string pathToFolder = null;
+
             pathToFolder = Environment.GetEnvironmentVariable("UserProfile");
             if( ! Directory.Exists(pathToFolder)) {
                 Console.WriteLine("Error\nInvalid path: {0}", pathToFolder);
@@ -116,17 +117,17 @@ namespace FileWatcher {
             Console.WriteLine("Monitoring File System Activity on: {0}", pathToFolder);
 
             DateTime previous_t = DateTime.Now;
-			DateTime current_t = DateTime.Now;
+            DateTime current_t = DateTime.Now;
 
             while( true ) {
-            	System.Threading.Thread.Sleep(10 * 1000);
-            	current_t = DateTime.Now;
-            	TimeSpan t = current_t - previous_t;
-            	int secs = (int)t.TotalSeconds;
-            	if( secs >= 60 ) {
-            		if( dbg) Console.WriteLine("[{0}] monitoring folder: {1}", current_t.ToString(),pathToFolder);
-            		previous_t = current_t;
-            	}
+                System.Threading.Thread.Sleep(10 * 1000);
+                current_t = DateTime.Now;
+                TimeSpan t = current_t - previous_t;
+                int secs = (int)t.TotalSeconds;
+                if( secs >= 60 ) {
+                    if( dbg) Console.WriteLine("[{0}] monitoring folder: {1}", current_t.ToString(),pathToFolder);
+                    previous_t = current_t;
+                }
             }
         }
     }
