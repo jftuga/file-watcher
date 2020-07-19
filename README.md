@@ -15,6 +15,9 @@ In the source code, change these as needed:
 * ignore_list
 * pathToFolder
 
+## Download
+* You can download a Windows binary with the default settings on the [Releases Page](https://github.com/jftuga/file_watcher/releases)
+
 ## Compilation
 
 This program can be compiled on **any** Windows 10 system by running this command:
