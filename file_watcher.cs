@@ -27,7 +27,7 @@ using System.IO;
 
 namespace FileWatcher {
     class Program {
-        const string pgm_version = "1.0.0";
+        const string pgm_version = "1.0.1";
         const string pgm_url = "https://github.com/jftuga/file_watcher";
         
         const int success_exit_code = 80211;
@@ -120,7 +120,7 @@ namespace FileWatcher {
             DateTime current_t = DateTime.Now;
 
             while( true ) {
-                System.Threading.Thread.Sleep(10 * 1000);
+                System.Threading.Thread.Sleep(1000); // 1 second
                 current_t = DateTime.Now;
                 TimeSpan t = current_t - previous_t;
                 int secs = (int)t.TotalSeconds;
