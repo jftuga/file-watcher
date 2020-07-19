@@ -27,7 +27,7 @@ using System.IO;
 
 namespace FileWatcher {
     class Program {
-        const string pgm_version = "1.0.1";
+        const string pgm_version = "1.0.2";
         const string pgm_url = "https://github.com/jftuga/file_watcher";
         
         const int success_exit_code = 80211;
@@ -94,9 +94,9 @@ namespace FileWatcher {
         private static void OnRenamed(object source, RenamedEventArgs e) {
             bool dbg=true;
 
-            if(isIgnored(e.FullPath.ToString())) return;
+            if(isIgnored(e.OldFullPath.ToString())) return;
 
-            if(dbg) Console.WriteLine("File: {0} renamed to {1}", e.OldFullPath, e.FullPath.ToString());
+            if(dbg) Console.WriteLine("File: {0} renamed to {1}", e.OldFullPath.ToString(), e.FullPath.ToString());
             System.Environment.Exit(success_exit_code);
         }
 
