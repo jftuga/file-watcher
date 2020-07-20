@@ -1,7 +1,7 @@
 
 /*
 
-file_watcher.cs
+file-watcher.cs
 -John Taylor
 Jul-17-2020
 
@@ -13,7 +13,7 @@ Paths can be ignored by placing them in the 'ignore_list'
 The default OS exit code is defined by 'success_exit_code'
 
 This program can be compiled on **any** Windows 10 system by running this command:
-C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe /nologo /debug:full /out:.\file_watcher.exe /target:exe file_watcher.cs
+C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe /nologo /debug:full /out:.\file-watcher.exe /target:exe file-watcher.cs
 
 Change these as needed (see below):
 success_exit_code
@@ -27,8 +27,8 @@ using System.IO;
 
 namespace FileWatcher {
     class Program {
-        const string pgm_version = "1.0.3";
-        const string pgm_url = "https://github.com/jftuga/file_watcher";
+        const string pgm_version = "1.1.0";
+        const string pgm_url = "https://github.com/jftuga/file-watcher";
         
         const int success_exit_code = 80211;
         static string[] ignore_list = { @"\AppData\", @"\temp\", @"ntuser.dat", ".tmp" };
@@ -111,7 +111,7 @@ namespace FileWatcher {
             }
 
             InitFSWatcher( pathToFolder, "" );
-            Console.WriteLine("file_watcher, version: {0}", pgm_version);
+            Console.WriteLine("file-watcher, version: {0}", pgm_version);
             Console.WriteLine("{0}", pgm_url);
             Console.WriteLine("");
             Console.WriteLine("Monitoring File System Activity on: {0}", pathToFolder);

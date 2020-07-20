@@ -1,4 +1,4 @@
-# file_watcher
+# file-watcher
 Monitor a given file location for create, change, rename and delete file events
 
 This program monitors a given file location for create, change, rename and delete file events and
@@ -16,12 +16,12 @@ In the source code, change these as needed:
 * pathToFolder
 
 ## Download
-* You can download a Windows binary with the default settings on the [Releases Page](https://github.com/jftuga/file_watcher/releases)
+* You can download a Windows binary with the default settings on the [Releases Page](https://github.com/jftuga/file-watcher/releases)
 
 ## Compilation
 
 This program can be compiled on **any** Windows 10 system by running this command:
-* `C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe /nologo /debug:full /out:.\file_watcher.exe /target:exe file_watcher.cs`
+* `C:\Windows\Microsoft.NET\Framework\v4.0.30319\csc.exe /nologo /debug:full /out:.\file-watcher.exe /target:exe file-watcher.cs`
 
 ## Run
 
